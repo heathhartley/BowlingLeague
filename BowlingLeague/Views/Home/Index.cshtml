@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IndexViewModels
+@foreach (var x in Model.teams)
+{ 
+<div class="line">
+    <h1>@x.TeamName</h1>
+</div>
+}
+@foreach (var x in Model.Bowlers)
+{
+
+    <div class="line">
+
+        <p>@x.BowlerFirstName @x.BowlerMiddleInit @x.BowlerLastName</p>
+        <p>@x.BowlerAddress @x.BowlerCity @x.BowlerState @x.BowlerZip</p>
+
+    </div>
+}
+
+<div page-info="@Model.PageNumberingInfo" team="@Model.BowlerCategory"
+     page-url-team="@Model.BowlerCategory">
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Teams>
+
+<a asp-action="Index" asp-controller="Home" asp-route-teamId="" class="btn-secondary)">Home</a>
+<br />
+
+@foreach (var x in Model)
+{
+    <a onclick="myFunction()" asp-action="Index" asp-controller="Home" asp-route-teamId="@x.TeamId"
+       asp-route-team="@x.TeamName" class="@(x.TeamName == ViewBag.SelectedType ? "btn-primary": "btn-secondary")">@x.TeamName</a>
+    <br />
+}
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
